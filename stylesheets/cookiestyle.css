@@ -1,0 +1,25 @@
+
+body{
+  height: 100%;
+  width: 100%;
+}
+
+#fortune_background{
+   position: relative;
+   width: 100%; /* for IE 6 */
+}
+
+img{
+  position: absolute;
+  left: 0px;
+  top: -100px;
+  width: 1000px;
+  height: 800px;
+  z-index: -1;
+}
+p {
+   position: relative;
+   top: 215px;
+   left: 340px;
+   width: 100%;
+}

@@ -39,27 +39,39 @@ class MainHandler(webapp2.RequestHandler):
 class CookieHandler(webapp2.RequestHandler):
     def get(self):
         def GetFortune():
-            fortune_number = 1
+            #fortune_number = 1
+            fortune_number = int(self.request.get('number', default_value=0))
+
             fortune_list =["People are naturally attracted to you.",
                            "You learn from your mistakes... You will learn a lot today.",
                            "If you have something good in your life, don't let it go!"]
             return getMessage(fortune_list,fortune_number)
+        fort_template_vars = {"fortune": GetFortune()}
         cookie_template = jinja_environment.get_template('templates/cookie.html')
-        self.response.write(GetFortune())
+        self.response.out.write(cookie_template.render(fort_template_vars))
         #self.response.out.write(cookie_template.render())
 
 
 class EightBallHandler(webapp2.RequestHandler):
     def get(self):
         def GetEightAnswer():
+            fortune_type = self.request.get('type')
             positive_list =["pos1", "pos2", "pos3","pos4", "pos5", "pos6" ]
             negative_list =["neg1", "neg2", "neg3"]
             neutral_list =["neu1", "neu2", "neu3"]
-            return getMessage(positive_list)
+            if fortune_type == "pos":
+                message_list=positive_list
+            elif fortune_type == "neg":
+                message_list= negative_list
+            else:
+                message_list = neutral_list
+                self.response.write(fortune_type)
+            return getMessage(message_list)
+
         userQuestion = "Will I have a good day today?"
+        eight_ball_template_vars = {"fortune": GetEightAnswer(), "question": userQuestion}
         eight_template = jinja_environment.get_template('templates/eightball.html')
-        self.response.write(GetEightAnswer())
-        #self.response.out.write(eight_template.render())
+        self.response.out.write(eight_template.render(eight_ball_template_vars))
 
 
 app = webapp2.WSGIApplication([
