@@ -1,8 +1,4 @@
----
-tags: cssi, gae, python, mvc
-level: 2
-languages: python
----
+
 
 #Fortune Teller Potential Solutions
 
