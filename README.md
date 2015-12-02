@@ -16,3 +16,5 @@ def getMessage(any_list,specificNumber=0):
         index = specificNumber
     return any_list[index]
 ```
+
+<a href='https://learn.co/lessons/cssi-7-fortune-first-steps-solution' data-visibility='hidden'>View this lesson on Learn.co</a>
