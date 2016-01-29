@@ -17,4 +17,4 @@ def getMessage(any_list,specificNumber=0):
     return any_list[index]
 ```
 
-<a href='https://learn.co/lessons/cssi-7-fortune-first-steps-solution' data-visibility='hidden'>View this lesson on Learn.co</a>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/cssi-7-fortune-first-steps-solution' title='Fortune Teller Potential Solutions'>Fortune Teller Potential Solutions</a> on Learn.co and start learning to code for free.</p>
